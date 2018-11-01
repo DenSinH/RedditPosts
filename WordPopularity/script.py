@@ -33,11 +33,11 @@ year = 2018
 startdate = dt.datetime(year, 9, 25)
 
 # read json files
-"""Remove 2017 if you are trying to plot the data for 2018"""
-with open("searchspook2017.json") as f:
+"""Add 2017 if you are trying to plot the data for 2017"""
+with open("searchspook.json") as f:
     data_spook = json.load(f)
 
-with open("searchdoot2017.json") as f:
+with open("searchdoot.json") as f:
     data_doot = json.load(f)
 
 with open("searchdoot2.json") as f:
@@ -79,10 +79,10 @@ plt.xticks([0.5, oct1 + 0.5, oct15 + 0.5, oct31 + 0.5], ["Sep 25", "Oct 1 ", "Oc
 plt.xlabel("Date")
 plt.axes().xaxis.set_label_coords(0.99, -0.08)
 
-plt.ylim(0, 60)
+plt.ylim(0, 60 if year == 2017 else 450)
 plt.ylabel("# Posts")
 
-plt.title("Popularity of the words 'Doot' and 'Spook'\nin r/dankmemes post titles in 2017")
+plt.title("Popularity of the words 'Doot' and 'Spook'\nin r/dankmemes post titles in {0}".format(year))
 plt.legend()
 
 # doot doot image
