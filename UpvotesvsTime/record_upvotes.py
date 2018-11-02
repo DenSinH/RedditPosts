@@ -8,6 +8,7 @@ while True:
     try:
         # trying to open the url might raise an HTML error
         request = urllib2.Request(url)
+        """Do NOT use my username when running this script, it might get you shadowbanned"""
         request.add_header("User-Agent", "D3NN152000, using this for a post")
         post = urllib2.urlopen(request)
         # read the json file
